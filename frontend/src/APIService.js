@@ -1,0 +1,31 @@
+const baseURL = 'arn:aws:execute-api:us-east-1:532016339310:463wvt2kt4'; 
+
+export const searchPhotos = async (query) => {
+  try {
+    const response = await fetch(`${baseURL}/*/GET/search?query=${query}`);
+    if (!response.ok) {
+      throw new Error('GET Network response was not ok');
+    }
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+export const uploadPhoto = async (photo, customLabels) => {
+  try {
+    const formData = new FormData();
+    formData.append('photo', photo);
+    formData.append('customLabels', customLabels.join(','));
+
+    const response = await fetch(`${baseURL}/*/PUT/upload`, {
+      method: 'PUT',
+      body: formData,
+    });
+    if (!response.ok) {
+      throw new Error('PUT Network response was not ok');
+    }
+    return await response.json(); 
+  } catch (error) {
+    throw error;
+  }
+};
