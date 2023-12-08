@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import APIService from "./APIService";
+import "./App.css";
 
 export default function Upload() {
     const [image, setImage] = useState(null);
@@ -27,10 +28,25 @@ export default function Upload() {
         }
     };
     return (
-        <div>
-            <input type="file" onChange={handleImageChange} />
-            <input type="text" placeholder="Labels (comma separated)" value={labels} onChange={handleLabelsChange} />
-            <button onClick={handleSubmit}>Submit</button>
+    <div>
+        <nav>
+            <ul className="nav-list">
+                <li>
+                    <a href="/upload" className="nav-item"><strong>Upload</strong></a>
+                </li>
+                <li>
+                    <a href="/search" className="nav-item">Search</a>
+                </li>
+            </ul>
+        </nav>
+        <div className="outer">
+            <div className="main">
+                <h1>Upload File:</h1>
+                <input type="file" onChange={handleImageChange} />
+                <input type="text" placeholder="Labels (comma separated)" value={labels} onChange={handleLabelsChange} />
+                <button onClick={handleSubmit}>Submit</button>
+            </div>
         </div>
+    </div>
     );
 }

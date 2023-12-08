@@ -1,9 +1,9 @@
-const baseURL = 'arn:aws:execute-api:us-east-1:532016339310:463wvt2kt4'; 
+const baseURL = 'https://463wvt2kt4.execute-api.us-east-1.amazonaws.com'; 
 
 const APIService = {
     searchPhotos: async (query) => {
         try {
-            const response = await fetch(`${baseURL}/*/GET/search?query=${query}`);
+            const response = await fetch(`${baseURL}/search?query=${query}`);
             if (!response.ok) {
               throw new Error('GET Network response was not ok');
             }
