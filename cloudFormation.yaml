@@ -6,7 +6,7 @@ Resources:
     Properties:
       Runtime: 'python3.8'
       Handler: 'lambda_handler'
-      FunctionName: 'LF2-photo-search'
+      FunctionName: 'search-photos-LF2'
       Description: 'By CF - LF2 to search for photos'
       Role: 'arn:aws:iam::532016339310:role/service-role/search-photos-LF2-role-93w6vaxe'
       Code:
