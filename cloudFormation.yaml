@@ -12,3 +12,23 @@ Resources:
       Code:
         S3Bucket: 'assg3-code-bucket'
         S3Key: 'search-photos-LF2.py.zip'
+  PhotoBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: 'Retain'
+    Properties:
+      BucketName: '9223hw3'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: FALSE
+        RestrictPublicBuckets: FALSE
+  PhotosDomain:
+    Type: AWS::OpenSearchService::Domain
+    DeletionPolicy: 'Retain'
+    Properties:
+      DomainName: 'photos'
+      EngineVersion: 'Elasticsearch_7.10'
+      EBSOptions:
+        VolumeSize: 10
+      ClusterConfig:
+         InstanceCount: 1
+          MultiAZWithStandbyEnabled: FALSE
+          WarmEnabled: FALSE
